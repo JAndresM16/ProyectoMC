@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+{% block body %}
+   <div class = "div_body">
+      <div class = "caja">
+         <form class = "from-control" action = "acceso-login" method = "POST">
+            <h3>Inicio de Sesion</h3>
+            {% if mensaje %}
+               <div class="alert alert-danger" role="alert">
+                  {{mensaje}}
+               </div>
+            {% endif %}
+            <div class="form-group">
+               <label for="exampleInputEmail1">Correo Electronico</label>
+               <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese su correo" name="txtCorreo">
+               <small id="emailHelp" class="form-text text-muted"></small>
+            </div>
+            <div class="form-group">
+               <label for="exampleInputPassword1">Contraseña</label>
+               <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Ingrese su contraseña" name="txtPassword">
+            </div>
+            <div class="form-check">
+               <input type="checkbox" class="form-check-input" id="exampleCheck1">
+               <label class="form-check-label" for="exampleCheck1">Ver contraseña</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Iniciar Sesion</button>
+         </form>
+      </div>
+   </div> 
+{% endblock %}

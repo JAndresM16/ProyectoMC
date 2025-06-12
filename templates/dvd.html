@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+{% block body %}
+   <div class = "div_body">
+      <div class = "caja_inicio">
+          <div class="container mt-4">
+            <h1 class="text-center">Lista de Películas</h1>
+            <div class="row">
+                {% for pelicula in peliculas %}
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ pelicula.2 }}</h5>
+                            <p class="card-text">{{ pelicula.3}}</p>
+                            <p class="card-text"><strong>Precio:</strong> ${{ pelicula.6 }}</p>
+                            {% if logueado %}
+                            <form action="{{ url_for('add_renta', id_dvd=pelicula[0], id_rentor=pelicula[1]) }}" method="POST" target="_blank">
+                              <div class="form-group">
+                                  <label for="cantidad">Cantidad:</label>
+                                  <input type="number" name="cantidad" id="cantidad" class="form-control" min="1" value="1" required>
+                              </div>
+                              <button type="submit" class="btn btn-success" onclick="return confirmarRenta() ">Rentar</button>
+                            </form>
+                            {% else %}
+                            <div class="text-center">
+                              <a class="d-block" href="/iniciar_sesion">Inicie sesión para poder rentar la película</a>
+                              o
+                              <a class="d-block" href="/registro">Regístrese para obtener una cuenta</a>
+                            </div>
+                            {% endif %}
+                            
+                            {% if es_rentor %}
+                            <div class"botones_1">
+                                <a href="/delete_dvd/{{pelicula.0}}" class="btn btn-danger btn-delete">Eliminar</a>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            
+        </div>
+      </div>     
+   </div> 
+{% endblock %}

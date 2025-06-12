@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+{% block body %}
+   <div class = "div_body">
+      <div class = "caja_inicio">
+        <h1>Factura de Renta</h1>
+        <p><strong>Cliente:</strong> {{ renta_info.cliente }}</p>
+        <p><strong>Fecha:</strong> {{ renta_info.fecha }}</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Descripción</th>
+                    <th>Cantidad</th>
+                    <th>Precio Unitario</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ renta_info.titulo }}</td>
+                    <td>{{ renta_info.cantidad }}</td>
+                    <td>${{ renta_info.precio }}</td>
+                    <td>${{ renta_info.total }}</td>
+                </tr>
+            </tbody>
+        </table>
+      </div>     
+   </div> 
+{% endblock %}
