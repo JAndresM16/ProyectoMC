@@ -14,7 +14,7 @@ def consultas_usuario(app, mysql):
         cur= mysql.connection.cursor()
         cur.execute('select * from rentor')
         rentors_data=cur.fetchall()
-        cur.close()
+        cur.close()  
         return render_template('rentor.html', logueado=logueado, nombre=nombre, rentors=rentors_data, es_rentor=es_rentor)
     @app.route('/add_rentor', methods=['POST'])
     def add_rentor():
