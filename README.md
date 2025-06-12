@@ -1,2 +1,0 @@
-# ProyectoMC
-Proyecto
