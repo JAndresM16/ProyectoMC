@@ -11,7 +11,7 @@ def register_routes(app, mysql):
         cur_1= mysql.connection.cursor()
         cur_1.execute('select id_usuario from rentor where id_usuario={0}'.format(id_usuario))
         es_rentor=bool(cur_1.fetchone())
-        cur_1.close()
+        cur_1.close() 
         nombre = session.get('nombre', False)
         cur= mysql.connection.cursor()
         cur.execute('select * from dvd')

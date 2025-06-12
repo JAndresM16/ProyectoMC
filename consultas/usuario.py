@@ -15,7 +15,7 @@ def consultas_usuario(app, mysql):
 
         nombre = session.get('nombre', False)
         return render_template('index.html', logueado=logueado, nombre=nombre, es_rentor=es_rentor)
-
+ 
     @app.route('/add_usuario', methods=['POST'])
     def add_usuario():
         if request.method == 'POST':

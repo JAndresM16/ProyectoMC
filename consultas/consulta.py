@@ -9,7 +9,7 @@ def registrar_consultas(app, mysql):
         cur.close()
         return render_template('index.html',usuario=data) 
     @app.route('/add_contact', methods=['POST'])
-    def add_contact():
+    def add_contact(): 
         if request.method=='POST':
             id_usuario=request.form['id_usuario']
             nombre=request.form['phone']
